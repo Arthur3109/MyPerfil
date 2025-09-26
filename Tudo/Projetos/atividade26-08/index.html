@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todos os Países</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flag-icons/css/flag-icons.min.css">
+
+  <link href="bootstrap-5.3.8-dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    body {
+      scroll-behavior: smooth;
+      background-color: #F3F4F6;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      color: white;
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: bold;
+      color: #111827;
+      height: 110px;
+      width: 100%;
+      max-width: 700px;
+      background-color: transparent;
+      padding: 10px;
+      overflow: hidden;
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-radius: 5px;
+    }
+
+
+
+    .hero button {
+      margin-top: 20px;
+    }
+
+    #tabela {
+      margin-top: 250px;
+    }
+
+    .carousel-fade .carousel-item {
+      transition: transform 6s ease-in-out !important;
+    }
+
+    .flag {
+      font-size: 4rem;
+
+    }
+
+    .button {
+      padding: 15px 25px;
+      font-size: 24px;
+      text-align: center;
+      cursor: pointer;
+      outline: none;
+      color: #fff;
+      background-color: #1E3A8A;
+      border: none;
+      border-radius: 15px;
+      box-shadow: 0 9px #182f6f;
+    }
+
+    .button:hover {
+      background-color: #FACC15;
+      color: #fff;
+    }
+
+    .button:active {
+      background-color: #2563EB;
+      box-shadow: 0 5px #666;
+      transform: translateY(4px);
+    }
+  </style>
+</head>
+
+<body>
+
+  <section class="hero">
+    <div id="carouselHero" class="carousel slide w-100" data-bs-ride="carousel">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="Images/pexels-jaymantri-5439.jpg" class="d-block w-100" alt="Imagem 1">
+        </div>
+        <div class="carousel-item">
+          <img src="Images/pexels-ninauhlikova-286720.jpg" class="d-block w-100" alt="Imagem 2">
+        </div>
+        <div class="carousel-item">
+          <img src="Images/pexels-sander-153644-457074.jpg" class="d-block w-100" alt="Imagem 3">
+        </div>
+        <div class="carousel-item">
+          <img src="Images/pexels-pixabay-2363.jpg" class="d-block w-100" alt="Imagem 3">
+        </div>
+        <div class="carousel-item">
+          <img src="Images/pexels-pixabay-531880.jpg" class="d-block w-100" alt="Imagem 3">
+        </div>
+        <div class="carousel-item">
+          <img src="Images/pexels-peng-liu-45946-169647.jpg" class="d-block w-100" alt="Imagem 3">
+        </div>
+      </div>
+      <div class="carousel-caption d-none d-md-block">
+        <h5>Explore o Mundo</h5>
+        <p>Descubra informações sobre todos os países</p>
+
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselHero" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselHero" data-bs-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </button>
+    </div>
+
+    <div class="position-absolute top-50 start-50 translate-middle text-center">
+      <h1>Veja todos os Países</h1>
+      <a href="#tabela" class="btn btn-light btn-lg button">Ver tabela</a>
+    </div>
+  </section>
+
+  <section id="tabela" class="container">
+    <h2 class="text-center mb-4" style="color: #111827;">Tabela de Países</h2>
+    <input type="text" id="pesquisa" class="form-control mb-3" placeholder="Pesquisar país, capital ou moeda...">
+
+    <table class="table table-bordered table-striped  table-hover" id="tabela">
+      <thead class="table-dark" style="background-color: #1E3A8A;">
+        <tr class="text-center">
+          <th>Bandeira</th>
+          <th>Nome</th>
+          <th>Capital</th>
+          <th>Língua</th>
+          <th>Moeda</th>
+          <th>Localização</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-af"></span></td>
+          <td>Afeganistão</td>
+          <td>Cabul</td>
+          <td>Dari e Pashto</td>
+          <td>Afegane (AFN)</td>
+          <td>Ásia</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-za"></span></td>
+          <td>África do Sul</td>
+          <td>Pretória / Cidade do Cabo / Bloemfontein</td>
+          <td>11 oficiais (Zulu, Xhosa, Afrikaans, Inglês...)</td>
+          <td>Rand (ZAR)</td>
+          <td>África</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-al"></span></td>
+          <td>Albânia</td>
+          <td>Tirana</td>
+          <td>Albanês</td>
+          <td>Lek (ALL)</td>
+          <td>Europa</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-de"></span></td>
+          <td>Alemanha</td>
+          <td>Berlim</td>
+          <td>Alemão</td>
+          <td>Euro (EUR)</td>
+          <td>Europa</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-ad"></span></td>
+          <td>Andorra</td>
+          <td>Andorra-a-Velha</td>
+          <td>Catalão</td>
+          <td>Euro (EUR)</td>
+          <td>Europa</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-ao"></span></td>
+          <td>Angola</td>
+          <td>Luanda</td>
+          <td>Português</td>
+          <td>Kwanza (AOA)</td>
+          <td>África</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-ag"></span></td>
+          <td>Antígua e Barbuda</td>
+          <td>Saint John’s</td>
+          <td>Inglês</td>
+          <td>Dólar do Caribe Oriental (XCD)</td>
+          <td>América Central/Caribe</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-sa"></span></td>
+          <td>Arábia Saudita</td>
+          <td>Riade</td>
+          <td>Árabe</td>
+          <td>Rial Saudita (SAR)</td>
+          <td>Ásia</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-dz"></span></td>
+          <td>Argélia</td>
+          <td>Argel</td>
+          <td>Árabe e Berbere</td>
+          <td>Dinar Argelino (DZD)</td>
+          <td>África</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-ar"></span></td>
+          <td>Argentina</td>
+          <td>Buenos Aires</td>
+          <td>Espanhol</td>
+          <td>Peso Argentino (ARS)</td>
+          <td>América do Sul</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-am"></span></td>
+          <td>Armênia</td>
+          <td>Erevã</td>
+          <td>Armênio</td>
+          <td>Dram (AMD)</td>
+          <td>Ásia</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-au"></span></td>
+          <td>Austrália</td>
+          <td>Camberra</td>
+          <td>Inglês</td>
+          <td>Dólar Australiano (AUD)</td>
+          <td>Oceania</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-at"></span></td>
+          <td>Áustria</td>
+          <td>Viena</td>
+          <td>Alemão</td>
+          <td>Euro (EUR)</td>
+          <td>Europa</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-az"></span></td>
+          <td>Azerbaijão</td>
+          <td>Bacu</td>
+          <td>Azeri</td>
+          <td>Manat (AZN)</td>
+          <td>Ásia</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-bs"></span></td>
+          <td>Bahamas</td>
+          <td>Nassau</td>
+          <td>Inglês</td>
+          <td>Dólar Bahamense (BSD)</td>
+          <td>América Central/Caribe</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-bh"></span></td>
+          <td>Bahrein</td>
+          <td>Manama</td>
+          <td>Árabe</td>
+          <td>Dinar do Bahrein (BHD)</td>
+          <td>Ásia</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-bd"></span></td>
+          <td>Bangladesh</td>
+          <td>Daca</td>
+          <td>Bengali</td>
+          <td>Taka (BDT)</td>
+          <td>Ásia</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-bb"></span></td>
+          <td>Barbados</td>
+          <td>Bridgetown</td>
+          <td>Inglês</td>
+          <td>Dólar de Barbados (BBD)</td>
+          <td>América Central/Caribe</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-be"></span></td>
+          <td>Bélgica</td>
+          <td>Bruxelas</td>
+          <td>Neerlandês, Francês e Alemão</td>
+          <td>Euro (EUR)</td>
+          <td>Europa</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-bz"></span></td>
+          <td>Belize</td>
+          <td>Belmopan</td>
+          <td>Inglês</td>
+          <td>Dólar de Belize (BZD)</td>
+          <td>América Central</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-bj"></span></td>
+          <td>Benim</td>
+          <td>Porto Novo</td>
+          <td>Francês</td>
+          <td>Franco CFA (XOF)</td>
+          <td>África</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-by"></span></td>
+          <td>Bielorrússia</td>
+          <td>Minsk</td>
+          <td>Bielorrusso e Russo</td>
+          <td>Rublo Bielorrusso (BYN)</td>
+          <td>Europa</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-bo"></span></td>
+          <td>Bolívia</td>
+          <td>Sucre (constitucional) / La Paz (sede do governo)</td>
+          <td>Espanhol, Quéchua, Aimará e outros</td>
+          <td>Boliviano (BOB)</td>
+          <td>América do Sul</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-ba"></span></td>
+          <td>Bósnia e Herzegovina</td>
+          <td>Sarajevo</td>
+          <td>Bósnio, Croata e Sérvio</td>
+          <td>Marco Conversível (BAM)</td>
+          <td>Europa</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-bw"></span></td>
+          <td>Botsuana</td>
+          <td>Gaborone</td>
+          <td>Inglês e Setsuana</td>
+          <td>Pula (BWP)</td>
+          <td>África</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-br"></span></td>
+          <td>Brasil</td>
+          <td>Brasília</td>
+          <td>Português</td>
+          <td>Real (BRL)</td>
+          <td>América do Sul</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-bn"></span></td>
+          <td>Brunei</td>
+          <td>Bandar Seri Begawan</td>
+          <td>Malaio</td>
+          <td>Dólar de Brunei (BND)</td>
+          <td>Ásia</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-bg"></span></td>
+          <td>Bulgária</td>
+          <td>Sofia</td>
+          <td>Búlgaro</td>
+          <td>Lev (BGN)</td>
+          <td>Europa</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-bf"></span></td>
+          <td>Burkina Faso</td>
+          <td>Uagadugu</td>
+          <td>Francês</td>
+          <td>Franco CFA (XOF)</td>
+          <td>África</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-bi"></span></td>
+          <td>Burundi</td>
+          <td>Gitega</td>
+          <td>Quirundi, Francês e Inglês</td>
+          <td>Franco do Burundi (BIF)</td>
+          <td>África</td>
+        </tr>
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-kh"></span></td>
+          <td>Camboja</td>
+          <td>Phnom Penh</td>
+          <td>Khmer</td>
+          <td>Riel Cambojano (KHR)</td>
+          <td>Ásia</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-cm"></span></td>
+          <td>Camarões</td>
+          <td>Yaoundé</td>
+          <td>Francês e Inglês</td>
+          <td>Franco CFA (XAF)</td>
+          <td>África</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-ca"></span></td>
+          <td>Canadá</td>
+          <td>Ottawa</td>
+          <td>Inglês e Francês</td>
+          <td>Dólar Canadense (CAD)</td>
+          <td>América do Norte</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-qa"></span></td>
+          <td>Catar</td>
+          <td>Doha</td>
+          <td>Árabe</td>
+          <td>Rial Catariano (QAR)</td>
+          <td>Ásia</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-kz"></span></td>
+          <td>Cazaquistão</td>
+          <td>Astana</td>
+          <td>Cazaque e Russo</td>
+          <td>Tenge (KZT)</td>
+          <td>Ásia</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-td"></span></td>
+          <td>Chade</td>
+          <td>N'Djamena</td>
+          <td>Francês e Árabe</td>
+          <td>Franco CFA (XAF)</td>
+          <td>África</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-cl"></span></td>
+          <td>Chile</td>
+          <td>Santiago</td>
+          <td>Espanhol</td>
+          <td>Peso Chileno (CLP)</td>
+          <td>América do Sul</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-cn"></span></td>
+          <td>China</td>
+          <td>Pequim</td>
+          <td>Chinês (Mandarim)</td>
+          <td>Yuan (CNY)</td>
+          <td>Ásia</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-cy"></span></td>
+          <td>Chipre</td>
+          <td>Nicósia</td>
+          <td>Grego e Turco</td>
+          <td>Euro (EUR)</td>
+          <td>Europa</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-co"></span></td>
+          <td>Colômbia</td>
+          <td>Bogotá</td>
+          <td>Espanhol</td>
+          <td>Peso Colombiano (COP)</td>
+          <td>América do Sul</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-km"></span></td>
+          <td>Comores</td>
+          <td>Moroni</td>
+          <td>Comorense, Árabe e Francês</td>
+          <td>Franco Comorense (KMF)</td>
+          <td>África</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-cg"></span></td>
+          <td>Congo</td>
+          <td>Brazzaville</td>
+          <td>Francês</td>
+          <td>Franco CFA (XAF)</td>
+          <td>África</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-kp"></span></td>
+          <td>Coreia do Norte</td>
+          <td>Pyongyang</td>
+          <td>Coreano</td>
+          <td>Won Norte-Coreano (KPW)</td>
+          <td>Ásia</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-kr"></span></td>
+          <td>Coreia do Sul</td>
+          <td>Seul</td>
+          <td>Coreano</td>
+          <td>Won Sul-Coreano (KRW)</td>
+          <td>Ásia</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-ci"></span></td>
+          <td>Costa do Marfim</td>
+          <td>Yamoussoukro (oficial) / Abidjan (sede do governo)</td>
+          <td>Francês</td>
+          <td>Franco CFA (XOF)</td>
+          <td>África</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-cr"></span></td>
+          <td>Costa Rica</td>
+          <td>San José</td>
+          <td>Espanhol</td>
+          <td>Colón Costarriquenho (CRC)</td>
+          <td>América Central</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-hr"></span></td>
+          <td>Croácia</td>
+          <td>Zagreb</td>
+          <td>Croata</td>
+          <td>Euro (EUR)</td>
+          <td>Europa</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-cu"></span></td>
+          <td>Cuba</td>
+          <td>Havana</td>
+          <td>Espanhol</td>
+          <td>Peso Cubano (CUP)</td>
+          <td>América Central/Caribe</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-cz"></span></td>
+          <td>Chéquia (República Tcheca)</td>
+          <td>Praga</td>
+          <td>Tcheco</td>
+          <td>Coroa Tcheca (CZK)</td>
+          <td>Europa</td>
+        </tr>
+
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-dk"></span></td>
+          <td>Dinamarca</td>
+          <td>Copenhague</td>
+          <td>Dinamarquês</td>
+          <td>Coroa Dinamarquesa (DKK)</td>
+          <td>Europa</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-dj"></span></td>
+          <td>Djibouti</td>
+          <td>Djibouti</td>
+          <td>Francês e Árabe</td>
+          <td>Franco do Djibouti (DJF)</td>
+          <td>África</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-dm"></span></td>
+          <td>Dominica</td>
+          <td>Roseau</td>
+          <td>Inglês</td>
+          <td>Dólar do Caribe Oriental (XCD)</td>
+          <td>América Central</td>
+        </tr>
+
+        <tr class="text-center">
+          <td class="flag"><span class="fi fi-do"></span></td>
+          <td>República Dominicana</td>
+          <td>Santo Domingo</td>
+          <td>Espanhol</td>
+          <td>Peso Dominicano (DOP)</td>
+          <td>América Central</td>
+        </tr>
+
+        <tr class="text-center">
+  <td class="flag"><span class="fi fi-ec"></span></td>
+  <td>Equador</td>
+  <td>Quito</td>
+  <td>Espanhol</td>
+  <td>Dólar Americano (USD)</td>
+  <td>América do Sul</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-eg"></span></td>
+  <td>Egito</td>
+  <td>Cairo</td>
+  <td>Árabe</td>
+  <td>Libra Egípcia (EGP)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-sv"></span></td>
+  <td>El Salvador</td>
+  <td>San Salvador</td>
+  <td>Espanhol</td>
+  <td>Dólar Americano (USD)</td>
+  <td>América Central</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-gq"></span></td>
+  <td>Guiné Equatorial</td>
+  <td>Malabo</td>
+  <td>Espanhol, Francês e Português</td>
+  <td>Franco CFA (XAF)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-er"></span></td>
+  <td>Eritreia</td>
+  <td>Asmara</td>
+  <td>Tigrínia, Árabe e Inglês</td>
+  <td>Nakfa (ERN)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-ee"></span></td>
+  <td>Estônia</td>
+  <td>Tallinn</td>
+  <td>Estoniano</td>
+  <td>Euro (EUR)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-et"></span></td>
+  <td>Etiópia</td>
+  <td>Adis Abeba</td>
+  <td>Amárico</td>
+  <td>Birr Etíope (ETB)</td>
+  <td>África</td>
+</tr>
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-fj"></span></td>
+  <td>Fiji</td>
+  <td>Suva</td>
+  <td>Inglês, Fijiano e Hindi Fijiano</td>
+  <td>Dólar Fijiano (FJD)</td>
+  <td>Oceania</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-fi"></span></td>
+  <td>Finlândia</td>
+  <td>Helsinque</td>
+  <td>Finlandês e Sueco</td>
+  <td>Euro (EUR)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-fr"></span></td>
+  <td>França</td>
+  <td>Paris</td>
+  <td>Francês</td>
+  <td>Euro (EUR)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-ga"></span></td>
+  <td>Gabão</td>
+  <td>Libreville</td>
+  <td>Francês</td>
+  <td>Franco CFA (XAF)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-gm"></span></td>
+  <td>Gâmbia</td>
+  <td>Banjul</td>
+  <td>Inglês</td>
+  <td>Dalasi (GMD)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-ge"></span></td>
+  <td>Geórgia</td>
+  <td>Tbilisi</td>
+  <td>Georgiano</td>
+  <td>Lari (GEL)</td>
+  <td>Ásia</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-gh"></span></td>
+  <td>Gana</td>
+  <td>Acra</td>
+  <td>Inglês</td>
+  <td>Cedi (GHS)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-gr"></span></td>
+  <td>Grécia</td>
+  <td>Atenas</td>
+  <td>Grego</td>
+  <td>Euro (EUR)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-gd"></span></td>
+  <td>Granada</td>
+  <td>Saint George’s</td>
+  <td>Inglês</td>
+  <td>Dólar do Caribe Oriental (XCD)</td>
+  <td>América Central/Caribe</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-gt"></span></td>
+  <td>Guatemala</td>
+  <td>Cidade da Guatemala</td>
+  <td>Espanhol</td>
+  <td>Quetzal (GTQ)</td>
+  <td>América Central</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-gn"></span></td>
+  <td>Guiné</td>
+  <td>Conacri</td>
+  <td>Francês</td>
+  <td>Franco Guineense (GNF)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-gw"></span></td>
+  <td>Guiné-Bissau</td>
+  <td>Bissau</td>
+  <td>Português</td>
+  <td>Franco CFA (XOF)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-gy"></span></td>
+  <td>Guiana</td>
+  <td>Georgetown</td>
+  <td>Inglês</td>
+  <td>Dólar da Guiana (GYD)</td>
+  <td>América do Sul</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-gf"></span></td>
+  <td>Guiana Francesa</td>
+  <td>Cayenne</td>
+  <td>Francês</td>
+  <td>Euro (EUR)</td>
+  <td>América do Sul</td>
+</tr>
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-hn"></span></td>
+  <td>Honduras</td>
+  <td>Tegucigalpa</td>
+  <td>Espanhol</td>
+  <td>Lempira (HNL)</td>
+  <td>América Central</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-ht"></span></td>
+  <td>Haiti</td>
+  <td>Port-au-Prince</td>
+  <td>Francês e Crioulo Haitiano</td>
+  <td>Gourde (HTG)</td>
+  <td>América Central/Caribe</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-hu"></span></td>
+  <td>Hungria</td>
+  <td>Budapeste</td>
+  <td>Húngaro</td>
+  <td>Forint (HUF)</td>
+  <td>Europa</td>
+</tr>
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-is"></span></td>
+  <td>Islândia</td>
+  <td>Reiquiavique</td>
+  <td>Islandês</td>
+  <td>Coroa Islandesa (ISK)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-in"></span></td>
+  <td>Índia</td>
+  <td>Nova Déli</td>
+  <td>Hindi e Inglês (oficiais), +22 outras línguas</td>
+  <td>Rupia Indiana (INR)</td>
+  <td>Ásia</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-id"></span></td>
+  <td>Indonésia</td>
+  <td>Jacarta</td>
+  <td>Indonésio</td>
+  <td>Rupia Indonésia (IDR)</td>
+  <td>Ásia</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-ir"></span></td>
+  <td>Irã</td>
+  <td>Teerã</td>
+  <td>Persa (Farsi)</td>
+  <td>Rial Iraniano (IRR)</td>
+  <td>Ásia</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-iq"></span></td>
+  <td>Iraque</td>
+  <td>Bagdá</td>
+  <td>Árabe e Curdo</td>
+  <td>Dinar Iraquiano (IQD)</td>
+  <td>Ásia</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-ie"></span></td>
+  <td>Irlanda</td>
+  <td>Dublin</td>
+  <td>Inglês e Irlandês</td>
+  <td>Euro (EUR)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-il"></span></td>
+  <td>Israel</td>
+  <td>Jerusalém</td>
+  <td>Hebraico e Árabe</td>
+  <td>Shekel (ILS)</td>
+  <td>Ásia</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-it"></span></td>
+  <td>Itália</td>
+  <td>Roma</td>
+  <td>Italiano</td>
+  <td>Euro (EUR)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-ci"></span></td>
+  <td>Costa do Marfim</td>
+  <td>Yamoussoukro / Abidjan</td>
+  <td>Francês</td>
+  <td>Franco CFA (XOF)</td>
+  <td>África</td>
+</tr>
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-jm"></span></td>
+  <td>Jamaica</td>
+  <td>Kingston</td>
+  <td>Inglês</td>
+  <td>Dólar Jamaicano (JMD)</td>
+  <td>América Central/Caribe</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-jp"></span></td>
+  <td>Japão</td>
+  <td>Tóquio</td>
+  <td>Japonês</td>
+  <td>Iene (JPY)</td>
+  <td>Ásia</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-jo"></span></td>
+  <td>Jordânia</td>
+  <td>Amã</td>
+  <td>Árabe</td>
+  <td>Dinar Jordaniano (JOD)</td>
+  <td>Ásia</td>
+</tr>
+
+
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-lv"></span></td>
+  <td>Letônia</td>
+  <td>Riga</td>
+  <td>Letão</td>
+  <td>Euro (EUR)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-lb"></span></td>
+  <td>Líbano</td>
+  <td>Beirute</td>
+  <td>Árabe</td>
+  <td>Libra Libanesa (LBP)</td>
+  <td>Ásia</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-ls"></span></td>
+  <td>Lesoto</td>
+  <td>Maseru</td>
+  <td>Sesoto e Inglês</td>
+  <td>Loti (LSL) e Rand Sul-Africano (ZAR)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-lr"></span></td>
+  <td>Líbéria</td>
+  <td>Monróvia</td>
+  <td>Inglês</td>
+  <td>Dólar Liberiano (LRD)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-li"></span></td>
+  <td>Liechtenstein</td>
+  <td>Vaduz</td>
+  <td>Alemão</td>
+  <td>Franco Suíço (CHF)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-lt"></span></td>
+  <td>Lituânia</td>
+  <td>Vilnius</td>
+  <td>Lituano</td>
+  <td>Euro (EUR)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-lu"></span></td>
+  <td>Luxemburgo</td>
+  <td>Luxemburgo</td>
+  <td>Luxemburguês, Francês e Alemão</td>
+  <td>Euro (EUR)</td>
+  <td>Europa</td>
+</tr>
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-mg"></span></td>
+  <td>Madagáscar</td>
+  <td>Antananarivo</td>
+  <td>Malgaxe, Francês</td>
+  <td>Ariary (MGA)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-mw"></span></td>
+  <td>Malawi</td>
+  <td>Lilongwe</td>
+  <td>Inglês, Chichewa</td>
+  <td>Kwacha Malawiano (MWK)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-my"></span></td>
+  <td>Malásia</td>
+  <td>Kuala Lumpur</td>
+  <td>Malaio</td>
+  <td>Ringgit (MYR)</td>
+  <td>Ásia</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-mv"></span></td>
+  <td>Maldivas</td>
+  <td>Malé</td>
+  <td>Dhivehi</td>
+  <td>Rufiyaa (MVR)</td>
+  <td>Ásia</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-ml"></span></td>
+  <td>Mali</td>
+  <td>Bamako</td>
+  <td>Francês, Bambara</td>
+  <td>Franco CFA (XOF)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-mt"></span></td>
+  <td>Malta</td>
+  <td>Valeta</td>
+  <td>Maltês, Inglês</td>
+  <td>Euro (EUR)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-mh"></span></td>
+  <td>Ilhas Marshall</td>
+  <td>Majuro</td>
+  <td>Marshallês, Inglês</td>
+  <td>Dólar Americano (USD)</td>
+  <td>Oceania</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-mr"></span></td>
+  <td>Mauritânia</td>
+  <td>Nouakchott</td>
+  <td>Árabe</td>
+  <td>Ouguiya (MRU)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-mu"></span></td>
+  <td>Maurício</td>
+  <td>Port Louis</td>
+  <td>Inglês, Francês, Crioulo Mauriciano</td>
+  <td>Rupia Mauriciana (MUR)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-mx"></span></td>
+  <td>México</td>
+  <td>Cidade do México</td>
+  <td>Espanhol</td>
+  <td>Peso Mexicano (MXN)</td>
+  <td>América do Norte</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-fm"></span></td>
+  <td>Estados Federados da Micronésia</td>
+  <td>Palikir</td>
+  <td>Inglês, Micronésio</td>
+  <td>Dólar Americano (USD)</td>
+  <td>Oceania</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-md"></span></td>
+  <td>Moldávia</td>
+  <td>Quixinau</td>
+  <td>Romeno</td>
+  <td>Leu Moldavo (MDL)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-mc"></span></td>
+  <td>Mônaco</td>
+  <td>Mônaco</td>
+  <td>Francês</td>
+  <td>Euro (EUR)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-mn"></span></td>
+  <td>Mongólia</td>
+  <td>Ulan Bator</td>
+  <td>Mongol</td>
+  <td>Tugrik (MNT)</td>
+  <td>Ásia</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-me"></span></td>
+  <td>Montenegro</td>
+  <td>Podgorica</td>
+  <td>Montenegrino</td>
+  <td>Euro (EUR)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-ma"></span></td>
+  <td>Marrocos</td>
+  <td>Rabat</td>
+  <td>Árabe, Amazigh</td>
+  <td>Dirham Marroquino (MAD)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-mz"></span></td>
+  <td>Moçambique</td>
+  <td>Maputo</td>
+  <td>Português</td>
+  <td>Metical (MZN)</td>
+  <td>África</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-mk"></span></td>
+  <td>Macedônia do Norte</td>
+  <td>Escópia</td>
+  <td>Macedônio</td>
+  <td>Denar (MKD)</td>
+  <td>Europa</td>
+</tr>
+
+<tr class="text-center">
+  <td class="flag"><span class="fi fi-mm"></span></td>
+  <td>Mianmar</td>
+  <td>Naypyidaw</td>
+  <td>Birmanês</td>
+  <td>Kyat (MMK)</td>
+  <td>Ásia</td>
+</tr>
+
+      </tbody>
+    </table>
+  </section>
+  <script>
+    document.getElementById("pesquisa").addEventListener("keyup", function () {
+      let input = this.value.toLowerCase();
+      let linhas = document.querySelectorAll("#tabela tbody tr");
+
+      linhas.forEach(function (linha) {
+        let texto = linha.textContent.toLowerCase();
+        if (texto.includes(input)) {
+          linha.style.display = "";
+        } else {
+          linha.style.display = "none";
+        }
+      });
+    });
+  </script>
+
+  <script src="bootstrap-5.3.8-dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

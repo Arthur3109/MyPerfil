@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="img/Logo3.png" type="image/x-icon">
+    <title>MC SUJO</title>
+</head>
+<body>
+    <div class="container">
+        <div class="Logo1"> <img src="img/Logo3.png" alt=""> </div> <br>
+        <div class="title">
+            <h1>CADASTRO DO CLIENTE</h1>
+        </div>
+        <form action="" method="">
+            <button class="button btn-5">Dados Pessoais</button>
+            <button class="button btn-5">Complementares</button>
+            <fieldset>
+                <legend>Dados Pessoais</legend>
+            <label for="Foto"><img src="img/lupaman.jpeg" alt="" class="foto"> <br> Sua Foto: <input type="file" name="foto"> </label>
+            <label for="ID_Client">  Id_cliente: <input type="text" name="ID" class="cli"> </label>
+            <label for="Data">  Data_Cadastro: <input type="date" name="DATA" class="cdata"> </label>
+            <label for="Atividade"> Ativo: Sim <input type="radio" id="sim" name="action"> Não <input type="radio" id="nao" name="action" class="ativo"></label>
+            <label for="Data_Nascimento">  Data_Nascimento <input type="date" class="datan"> </label> <br>
+            <label for="Pessoa"> Pessoa:  Fisica <input type="radio" id="F" name="action"> Juridica <input type="radio" id="J" name="action"></label>
+            <label for="Nome">  Nome: <input type="text" name="Nome" class="nome"> </label> <br>
+            <label for="CNPJ">  CNPJ: <input type="number" name="CNPJ" class="cnpj"> </label>
+            <label for="CPF">  CPF: <input type="number" name="CPF" class="cpf"> </label>
+            <label for="RG">  RG: <input type="number" name="RG" class="rg"> </label>
+
+            <label for="Sexo"> Sexo: M <input type="radio" id="m" name="action"> F <input type="radio" id="f" name="action"> </label> <br>
+
+            <label> Estado Civil: </label>
+            <select for="EC" name="ec" class="estc"> 
+                <option> Solteiro </option>
+                <option> Casado </option>
+             </select>
+
+             <label for="NT">  Número de telefone: <input type="number" name="NT" class="numt"> </label>
+             <label for="NR">  Número Residencial <input type="number" name="NR" class="numr"> </label> <br>
+             <label for="Endereco">  Endereço: <input type="text" name="Endereco" class="end"> </label>
+             <label for="N">  Número: <input type="number" name="N" class="num"> </label>
+             <label for="CEP"> CEP: <input type="number" name="CEP" class="cep"> </label> <br> 
+             <label for="Bairro"> Bairro: <input type="text" name="Bairro" class="bairro"> </label>
+             <label for="Complemento"> Complemento: <input type="text" name="Complemento" class="com"> </label> <br> 
+             <label for="Cidade">  Cidade: <input type="text" name="Cidade" class="cid"> </label>
+
+             <label> Estado: </label>
+             <select for="Est" name="Est" class="est">
+                <option></option> 
+                 <option> AC </option>
+                 <option> AL </option>
+                 <option> AP </option>
+                 <option> AM </option>
+                 <option> BA </option>
+                 <option> CE </option>
+                 <option> DF </option>
+                 <option> ES </option>
+                 <option> GO </option>
+                 <option> MA </option>
+                 <option> MT </option>
+                 <option> MS </option>
+                 <option> MG </option>
+                 <option> PA </option>
+                 <option> PB </option>
+                 <option> PR </option>
+                 <option> PE </option>
+                 <option> PI </option>
+                 <option> RJ </option>
+                 <option> RN </option>
+                 <option> RS </option>
+                 <option> RO </option>
+                 <option> RR </option>
+                 <option> SC </option>
+                 <option> SP </option>
+                 <option> SE </option>
+                 <option> TO </option> 
+              </select> <br> 
+            </fieldset>
+                  <fieldset>
+                    <legend> Dados Complementares</legend>
+                      <label for="Email"> Email:  <input type="email" id="email" name="email"> </label>
+                      <label for="Convenio"> Convenio:  <input type="text" id="Convenio" name="Convenio"> </label> <br>
+                      <label for="NomeContato"> Nome_Contato:  <input type="text" id="NomeContato" name="NomeContato"> </label>
+                      <label for="NomeContato2"> Nome_Contato2: <input type="text" id="NomeContato2" name="NomeContato2"> </label> <br>
+                      <label for="Telefone_Contato:"> Telefone_Contato:  <input type="number" id="Telefone_Contato:" name="Telefone_Contato:"> </label>
+                      <label for="Telefone_Contato2:"> Telefone_Contato2:  <input type="number" id="Telefone_Contato2" name="Telefone_Contato2"> </label> <br>
+                      <label for="Mae">Nome Mãe:  <input type="text" id="mae" name="mae"> </label>
+                      <label for="limcompra">Limite De Compra:  <input type="number" id="limcompra" name="limcompra"> </label>  <br> 
+                      <button class="button btn-15"><a href="site.html">Enviar</a></button>
+                      <input type="reset" value="Limpar" class="button btn-5">
+                  </fieldset>
+            </form>
+            </div>
+            
+</body>
+</html>

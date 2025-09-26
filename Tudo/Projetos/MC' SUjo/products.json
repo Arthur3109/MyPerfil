@@ -1,0 +1,99 @@
+[
+    {
+        "id": 1,
+        "name":"SUJO CLÁSSICO",
+        "price": 25,
+        "image": "img/1.png"
+    },
+    {
+        "id": 2,
+        "name":" SUJO DUPLO",
+        "price": 30,
+        "image": "img/2.png"
+    },
+    {
+        "id": 3,
+        "name":" MC BACON SUJO",
+        "price": 35,
+        "image": "img/3.png"
+    },
+    {
+        "id": 4,
+        "name":" CHEDDARZÃO SUJO",
+        "price": 23.99,
+        "image": "img/4.png"
+    },
+    {
+        "id": 5,
+        "name":" SUJO PRIME",
+        "price": 37.99,
+        "image": "img/5.png"
+    },
+    {
+        "id": 6,
+        "name":" FRANGO CROCANTE",
+        "price": 27.99,
+        "image": "img/6.png"
+    },
+    {
+        "id": 7,
+        "name":" VEGGIE SUJO",
+        "price": 20,
+        "image": "img/7.png"
+    },
+    {
+        "id": 8,
+        "name":" COMBO SUJO CLÁSSICO",
+        "price": 29.90,
+        "image": "img/8.png"
+    },
+    {
+        "id": 9,
+        "name":" COMBO SUJO DUPLO",
+        "price": 36.99,
+        "image": "img/9.png"
+    },
+    {
+        "id": 10,
+        "name":" COMBO FRANGO CROCANTE",
+        "price": 32.99,
+        "image": "img/10.png"
+    },
+    {
+        "id": 11,
+        "name":" BATATA FRITA SUJA",
+        "price": 9.99,
+        "image": "img/11.png"
+    },
+    {
+        "id": 12,
+        "name":"ONION RINGS",
+        "price": 12.99,
+        "image": "img/12.png"
+    },
+    {
+        "id": 13,
+        "name":" NUGGETS SUJINHA",
+        "price": 11.99,
+        "image": "img/13.png"
+    },
+    {
+        "id": 14,
+        "name":" SUCO NATURAL",
+        "price": 9,
+        "image": "img/14.png"
+    },
+    {
+        "id": 15,
+        "name":" CHÁ GELADO",
+        "price": 7,
+        "image": "img/15.png"
+    },
+    {
+        "id": 16,
+        "name":" REFRI (LATINHA)",
+        "price": 6,
+        "image": "img/16.png"
+    }
+
+]

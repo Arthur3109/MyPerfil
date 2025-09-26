@@ -1,0 +1,376 @@
+@import url('https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+TC&display=swap');
+body {
+        width: 100%;
+        height: 100vh;
+        margin: 10px;
+        padding: 0;
+        background: #2F2F2F;
+        color: #F2B92F;
+        font-family: Arial, Helvetica, sans-serif;
+        
+}
+
+canvas {
+  display: block;
+}
+
+.block {
+    height: 200px;
+        width: 300px;
+        margin: 15px;
+        border: 0.5mm solid black;
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+          rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+          rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset; 
+          color: #2F2F2F;
+          border-radius: 20px 100px;
+          padding: 10px;
+          
+}
+.view {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+}
+
+h1 {
+        width: 100%;
+        height: 100vh;
+        line-height: 80vh;
+        text-align: center;
+        display: block;
+        font-size: 90px;
+        font-family: "WDXL Lubrifont TC", Arial, Helvetica, sans-serif;
+}
+
+.img1 {
+    border: 1px solid #2F2F2F;
+    border-radius: 30px 10px;
+}
+
+.a1 {
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    margin: 1%;
+ }
+p {
+    position: relative;
+    text-align: center;
+    font-size: 30px;
+    margin-top: 10%;
+ }
+
+ hr {
+    color: #fff;
+ }
+
+    .block:nth-child(1) {
+        background: #F2B92F;
+        width: 900px;
+        height: 500px;
+        text-align: center;
+        margin-right: 500px;
+    }
+    .block:nth-child(2) {
+        background: #2F2F2F;
+        width: 700px;
+        height: 500px;
+        margin-left: 1000px;
+        margin-top: 10px;
+        color: #F2B92F;
+    }
+    .block:nth-child(3) {
+        background: #F2B92F;
+        width: 900px;
+        height: 500px;
+        text-align: center;
+        margin-right: 500px;
+    }
+    .block:nth-child(4) {
+        background: #2F2F2F;
+        width: 700px;
+        height: 500px;
+        margin-left: 1000px;
+        margin-top: 10px;
+        color: #F2B92F;
+    }
+    .block:nth-child(5) {
+        background: #F2B92F;
+        width: 900px;
+        height: 800px;
+        text-align: center;
+        margin-right: 500px;
+    }
+    .block:nth-child(6) {
+        background: #2F2F2F;
+        width: 700px;
+        height: 500px;
+        margin-left: 1000px;
+        margin-top: 10px;
+        color: #F2B92F;
+    }
+    .block:nth-child(7) {
+        background: #F2B92F;
+        width: 900px;
+        height: 800px;
+        text-align: center;
+        margin-right: 500px;
+    }
+    .block:nth-child(8) {
+        background: #2F2F2F;
+        width: 700px;
+        height: 500px;
+        margin-left: 1000px;
+        margin-top: 10px;
+        color: #F2B92F;
+    }
+    .block:nth-child(9) {
+        background: #F2B92F;
+        width: 900px;
+        height: 500px;
+        text-align: center;
+        margin-right: 500px;
+    }
+    .block:nth-child(10) {
+        background: #2F2F2F;
+        width: 1000px;
+        height: 500px;
+        margin-left: 500px;
+        margin-top: 10px;
+        color: #F2B92F;
+    }
+
+#txtanimado {
+    display: flex;
+    color: #ffffff;
+    font-size: 28px;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+#txtanimado .animado {
+    top: 100px;
+    color: #F2B92F;
+    font-size: 28px;
+    text-align: center;
+    text-shadow: 1px 1px 3px #000;
+    margin-right: 10px;
+}
+
+#txtanimado span {
+    position: relative;
+    margin-top: 20%;
+}
+#txtanimado span::before {
+    content: "";
+    color: #F2B92F;
+    animation: palavras 20s infinite;
+    
+}
+
+#txtanimado span::after {
+    content: "";
+    position: absolute;
+    height: 35px;
+    border-left: 2px solid #000000;
+    right: -10px;
+    animation: cursor 0.8s infinite, digita 20s steps(15) infinite;
+    width: calc(100% + 11px);
+    background-color: #2F2F2F;
+}
+
+@keyframes digita {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95% {
+        width: 0;
+    }
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85% {
+        width: calc(100% + 11px);
+    }
+}
+
+@keyframes cursor {
+    0% {
+        border-left: 2px solid #F2B92F;
+    }
+}
+
+@keyframes palavras {
+    0%,20% {
+        content: "Arthur Emmerich Lamas";
+    }
+    21%, 40% {
+        content: "Giovanni Galanjauskas Kacevicius Lima Ferreira";
+    }
+    41%, 60% {
+        content: "Arthur Emmerich Lamas";
+    }
+    61%, 80% {
+        content: "ALESSANDRO WINGERTER";
+    }
+    81%, 100% {
+        content: "1ºIFEM - 2025";
+    }
+}
+
+header {
+    background-color: #24252a;
+    box-shadow: 0px 3px 10px #464646;
+}
+
+.nav-bar {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 6rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    
+}
+
+.logo h1 {
+    color: #fff;
+    position: absolute;
+    top: -350px;
+    left: -700px;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+    margin-right: 40%;
+}
+
+.nav-list ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+
+}
+
+.nav-item {
+    margin: 0 15px;
+
+}
+
+
+.nav-link {
+    text-decoration: none;
+    font-size: 1.15rem;
+
+}
+
+.login-button button {
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background-color: #0187a7;
+}
+
+.login-button button a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.mobile-menu-icon {
+    display: none;
+}
+
+.mobile-menu {
+    display: none;
+}
+
+@media screen and (max-width: 730px) {
+    .nav-bar {
+        padding: 1.5rem 4rem;
+    }
+    .nav-item {
+        display: none;
+    }
+    .login-button {
+        display: none;
+    }
+    .mobile-menu-icon {
+        display: block;
+    }
+    .mobile-menu-icon button {
+        background-color: transparent;
+        border: none;
+        cursor: pointer;
+    }
+    .mobile-menu ul {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 1rem;
+    }
+    .mobile-menu .nav-item {
+        display: block;
+        padding-top: 1.2rem;
+    }
+    .mobile-menu .login-button {
+        display: block;
+        padding: 1rem 2rem;
+    }
+    .mobile-menu .login-button button {
+        width: 100%;
+    }
+    .open {
+        display: block;
+    }
+}
+
+.button {
+    
+    color: #2F2F2F;
+    width: 130px;
+    height: 40px;
+    padding: 10px 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all .3 ease;
+    position: relative;
+    display: inline-block;
+}
+
+.btn-15 {
+   color: #F2B92F;
+    border: 1px solid #F2B92F;
+    box-shadow: 0 0 5PX #F2B92F, inset 0 0 5x #F2B92F;
+    z-index: 1;
+}
+
+.btn-15::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background: #F2B92F;
+    box-shadow: 0 0 20px #F2B92F;
+    transition: all 0.3s ease;
+}
+
+.btn-15:hover {
+    color: #ffffff;
+}
+
+.btn-15:hover::after {
+    left: 0;
+    width: 100%;
+}
+
+.btn-15:active {
+    top: 2px;
+}

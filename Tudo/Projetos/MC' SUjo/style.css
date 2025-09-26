@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=WDXL+Lubrifont+TC&display=swap');
+
+body {
+    background: url(img/papel-de-parede-adesivo-fast-food-fundo-preto-lanchonete-papel-de-parede-lavavel.png) no-repeat;
+    margin: 0;
+    font-family: "WDXL Lubrifont TC", Arial, Helvetica, sans-serif;
+}
+
+.container {
+    background-color: #2F2F2F;
+    width: 1000px;
+    color: #F2B92F;
+    margin: auto;
+    margin-top: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 1px 1px 5px #ffffff;
+    font-size: 24px;
+}
+
+.title {
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+}
+
+input {
+    margin-right: 15px;
+    margin-bottom: 10px;
+    box-shadow: 0px 0px 3px 1px #F2B92F;
+}
+
+a {
+    text-decoration: none;
+    color: #535151;
+}
+
+.foto {
+    text-align: left;
+    margin: 0;
+    width: 100px;
+    height: 100px;
+}
+
+.Logo{
+    text-align: right;
+    opacity: 75%;
+    margin: 0;
+    position: relative;
+    display: inline-block;
+    margin: 0;
+}
+
+.Logo img {
+    width: 170px;
+    height: 170px;
+}
+.Logo1{
+    text-align: right;
+    opacity: 75%;
+    margin: 0;
+    position: relative;
+    display: block;
+    margin: 0;
+}
+
+.Logo1 img {
+    width: 100px;
+    height: 100px;
+}
+
+fieldset {
+    background-color: #535151;
+}
+
+.button {
+    
+    color: #2F2F2F;
+    width: 130px;
+    height: 40px;
+    padding: 10px 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 500;
+    background: transparent;
+    cursor: pointer;
+    transition: all .3 ease;
+    position: relative;
+    display: inline-block;
+}
+
+canvas {
+  display: block;
+}
+
+.btn-5 {
+    background-color: #F2B92F;
+    line-height: 42px;
+    padding: 0;
+    border: none;
+}
+
+.btn-5:hover {
+    background: transparent;
+    color: #F2B92F;
+}
+
+.btn-5::before, 
+.btn-5::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 2px;
+    background: #F2B92F;
+    width: 0;
+    box-shadow: 0 0 5px #F2B92F, 0 0 5px #F2B92F inset;
+    transition: 400ms ease all;
+}
+
+.btn-5::after {
+    right: inherit;
+    top: inherit;
+    left: 0;
+    bottom: 0;
+}
+
+.btn-5:hover::before,
+.btn-5:hover::after {
+    width: 100%;
+    transition: 0.8s ease all
+}
+
+.btn-15 {
+   color: #F2B92F;
+    border: 1px solid #F2B92F;
+    box-shadow: 0 0 5PX #F2B92F, inset 0 0 5x #F2B92F;
+    z-index: 1;
+}
+
+.btn-15::after {
+    position: absolute;
+    content: "";
+    width: 0;
+    height: 100%;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    background: #F2B92F;
+    box-shadow: 0 0 20px #F2B92F;
+    transition: all 0.3s ease;
+}
+
+.btn-15:hover {
+    color: #ffffff;
+}
+
+.btn-15:hover::after {
+    left: 0;
+    width: 100%;
+}
+
+.btn-15:active {
+    top: 2px;
+}
+

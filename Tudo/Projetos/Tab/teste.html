@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tabela Periódica</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Layout container */
+        .periodic-container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        /* Grid: 18 colunas para tabela principal */
+        .periodic-grid {
+            display: grid;
+            grid-template-columns: repeat(18, 1fr);
+            gap: 6px;
+        }
+
+        /* Cada célula do grid (elemento ou vazio) */
+        .cell {
+            min-width: 0;
+        }
+
+        /* Caixa do elemento: mantém aspecto quadrado (CSS moderno) */
+        .element {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 6px;
+            color: #111;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 6px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+            cursor: pointer;
+            transition: transform .12s ease, box-shadow .12s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .element:hover {
+            transform: scale(1.05);
+            z-index: 2;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.25);
+        }
+
+        .el-top { display:flex; justify-content:space-between; font-size:0.85rem; }
+        .el-symbol { font-weight:700; font-size:1.45rem; text-align:center; margin-top:6px; }
+        .el-mass { text-align:right; font-size:0.7rem; opacity:0.95; }
+
+        /* Placeholder vazio */
+        .empty {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            background: transparent;
+        }
+
+        /* Linhas especiais (lantanídeos/actinídeos) */
+        .series-label {
+            margin-top: 12px;
+            font-weight: 600;
+        }
+        .series-grid {
+            display: grid;
+            grid-template-columns: repeat(15, 1fr);
+            gap: 6px;
+            margin-top: 6px;
+        }
+
+        /* Responsividade: em telas pequenas, tornamos o grid scrollável horizontalmente */
+        @media (max-width: 700px) {
+            .periodic-grid {
+                overflow-x: auto;
+                grid-auto-flow: column;
+                grid-auto-columns: minmax(80px, 10vw);
+            }
+            .element { font-size: 0.85rem; }
+        }
+
+        /* Modal content tweaks */
+        .modal-el-symbol { font-size: 3rem; font-weight:700; }
+        .modal-el-number { font-size: 1.1rem; color:#666; }
+        .modal-el-mass { font-size:1rem; color:#333; }
+    </style>
+</head>
+<body>
+    <div class="container periodic-container">
+        <h2 class="text-center mb-3">Tabela Periódica</h2>
+        <div id="periodicGrid" class="periodic-grid" aria-label="Tabela periódica"></div>
+
+        <!-- Lanthanides -->
+        <div class="series-label">Lantanídeos</div>
+        <div id="lanthGrid" class="series-grid"></div>
+
+        <!-- Actinídeos -->
+        <div class="series-label">Actinídeos</div>
+        <div id="actinGrid" class="series-grid"></div>
+    </div>
+
+    <!-- Bootstrap Modal (usado dinamicamente) -->
+    <div class="modal fade" id="elementModal" tabindex="-1" aria-hidden="true">

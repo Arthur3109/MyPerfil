@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #F5F3EC, #D2CDB9, #92A378) no-repeat center center fixed;
+    color: #333;
+    line-height: 1.6;
+    padding: 20px;
+}
+
+.cart {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    height: 300px !important;
+    margin: 20px auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.my-foto{
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+i {
+    font-size: 30px;
+    margin: 10px;
+    color: #333;
+}

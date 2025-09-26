@@ -1,0 +1,1386 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-bs-theme="dark">
+<!--Esse Comando do BootStrap é responsável por deixar o site no modo escuro, ele é citado no documento do site oficial do bootstrap-->
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabela Periódica</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            max-height: 1200px !important;
+        }
+
+
+        * {
+            
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        @font-face {
+            font-family: Mine;
+            src: url(Fontes/Minecraftia-Regular.ttf) format('truetype');
+        }
+
+        .titulo {
+            font-size: 3rem;
+            font-weight: 600;
+            text-align: center;
+            margin: 20px 0;
+            color: #30363c;
+            letter-spacing: 1.5px;
+            position: relative;
+            display: inline-block;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .titulo::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -6px;
+            width: 0%;
+            height: 2px;
+            background: #e5e8ed;
+            transition: width 0.3s ease, left 0.3s ease;
+        }
+
+        .titulo:hover {
+            color: #e5e8ed;
+            transform: translateY(-3px);
+        }
+
+        .titulo:hover::after {
+            width: 100%;
+            left: 0;
+        }
+
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        .ball {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: inline-block;
+            margin-right: 5px;
+            border: 3px solid black;
+        }
+
+        .elemento.destacado {
+            position: relative;
+            z-index: 1;
+            border: 2px solid currentColor;
+            backdrop-filter: blur(4px);
+            box-shadow: 0 0 15px currentColor, 0 0 30px rgba(0, 0, 0, 0.3);
+            transform: scale(0.95);
+            transition: all 0.3s ease-in-out;
+        }
+
+        /* efeito de pulsar para parecer ativo */
+        .elemento.destacado::after {
+            content: "";
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            right: -5px;
+            bottom: -5px;
+            border-radius: 12px;
+            border: 2px solid currentColor;
+            animation: pulse 1.5s infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+
+            50% {
+                transform: scale(1);
+                opacity: 0;
+            }
+
+            100% {
+                transform: scale(1);
+                opacity: 0.6;
+            }
+        }
+
+
+        .elemento {
+            width: 60px;
+            height: 60px;
+            border: 1px solid white;
+            text-align: center;
+            font-size: 12px;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            color: white;
+        }
+
+        /* Efeito de zoom apenas nos elementos que não forem "setas" */
+        .elemento.zoom:hover {
+            transform: scale(1.5);
+            z-index: 2;
+        }
+
+        .info-extra {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            color: white;
+            font-size: 10px;
+            text-align: center;
+            padding: 5px;
+            transition: bottom 0.3s ease;
+            visibility: hidden;
+            margin: auto;
+        }
+
+        .elemento:hover .info-extra {
+            bottom: 0;
+            visibility: visible;
+            margin: auto;
+        }
+
+        .info-extra2 {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            width: 100%;
+            color: white;
+            font-size: 10px;
+            text-align: center;
+            padding: 5px;
+            transition: bottom 0.3s ease;
+            visibility: hidden;
+            margin: auto;
+        }
+
+        .elemento:hover .info-extra2 {
+            bottom: 15%;
+            visibility: visible;
+            margin: auto;
+
+        }
+
+        footer {
+            background-color: #495057;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            position: relative;
+        }
+    </style>
+
+</head>
+
+<body class="bg-dark text-white p-3 d-flex flex-column min-vh-100">
+
+    <main>
+        <div class="container-sm d-flex flex-column min-vh-100">
+            <div class="row justify-content-start ">
+                <h1 class="titulo">Tabela Periódica</h1>
+                <div class="col-auto  ms-auto">
+                    <div class="elemento zoom Ametais" style="background-color: #2a4165;">
+                        <div>1</div>
+                        <div>H</div>
+                        <div style="visibility: hidden;">Hidrogênio</div>
+                        <div class="info-extra">Hidrogênio</div>
+                        <div class="info-extra2">1,008</div>
+                    </div>
+                </div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col-auto">
+                    <div class="elemento zoom gas-nobre" style="background-color: #623842;">
+                        <div>2</div>
+                        <div>He</div>
+                        <div style="visibility: hidden;">Hélio</div>
+                        <div class="info-extra">Hélio</div>
+                        <div class="info-extra2">4,0026</div>
+                    </div>
+                </div>
+            </div>
+            <!-- Segunda linha -->
+            <div class="row row justify-content-start g-1">
+                <div class="col-auto">
+                    <div class="elemento zoom alcalino" style="background-color: #244d57;">
+                        <div>3</div>
+                        <div>Li</div>
+                        <div style="visibility: hidden;">Lítio</div>
+                        <div class="info-extra">Lítio</div>
+                        <div class="info-extra2">6,94</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom alcalinoterroso" style="background-color: #622e39;">
+                        <div>4</div>
+                        <div>Be</div>
+                        <div style="visibility: hidden;">Berílio</div>
+                        <div class="info-extra">Berílio</div>
+                        <div class="info-extra2">9,0122</div>
+                    </div>
+                </div>
+                <!-- Espaços vazios -->
+                <div class="col"></div>
+                <div class="col-auto">
+                    <div class="elemento zoom semimetais" style="background-color: #523e1b;">
+                        <div>5</div>
+                        <div>B</div>
+                        <div style="visibility: hidden;">Boro</div>
+                        <div class="info-extra">Boro</div>
+                        <div class="info-extra2">10,81</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Ametais" style="background-color: #2a4165;">
+                        <div>6</div>
+                        <div>C</div>
+                        <div style="visibility: hidden;">Carbono</div>
+                        <div class="info-extra">Carbono</div>
+                        <div class="info-extra2">12,011</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Ametais" style="background-color: #2a4165;">
+                        <div>7</div>
+                        <div>N</div>
+                        <div style="visibility: hidden;">Nitrogênio</div>
+                        <div class="info-extra">Nitrogênio</div>
+                        <div class="info-extra2">14,007</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Ametais" style="background-color: #2a4165;">
+                        <div>8</div>
+                        <div>O</div>
+                        <div style="visibility: hidden;">Oxigênio</div>
+                        <div class="info-extra">Oxigênio</div>
+                        <div class="info-extra2">15,999</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Ametais" style="background-color: #2a4165;">
+                        <div>9</div>
+                        <div>F</div>
+                        <div style="visibility: hidden;">Flúor</div>
+                        <div class="info-extra">Flúor</div>
+                        <div class="info-extra2">18,998</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom gas-nobre" style="background-color: #623842;">
+                        <div>10</div>
+                        <div>Ne</div>
+                        <div style="visibility: hidden;">Neônio</div>
+                        <div class="info-extra">Neônio</div>
+                        <div class="info-extra2">20,180</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-start g-1">
+                <div class="col-auto">
+                    <div class="elemento zoom alcalino" style="background-color: #244d57;">
+                        <div>11</div>
+                        <div>Na</div>
+                        <div style="visibility: hidden;">Sódio</div>
+                        <div class="info-extra">Sódio</div>
+                        <div class="info-extra2">22,990</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom alcalinoterroso" style="background-color: #622e39;">
+                        <div>12</div>
+                        <div>Mg</div>
+                        <div style="visibility: hidden;">Magnésio</div>
+                        <div class="info-extra">Magnésio</div>
+                        <div class="info-extra2">24,305</div>
+                    </div>
+                </div>
+                <!-- Espaços vazios -->
+                <div class="col"></div>
+                <div class="col-auto">
+                    <div class="elemento zoom metais-pós" style="background-color: #2f4d47;">
+                        <div>13</div>
+                        <div>Al</div>
+                        <div style="visibility: hidden;">Alumínio</div>
+                        <div class="info-extra">Alumínio</div>
+                        <div class="info-extra2">26,982</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom semimetais" style="background-color: #523e1b;">
+                        <div>14</div>
+                        <div>Si</div>
+                        <div style="visibility: hidden;">Silício</div>
+                        <div class="info-extra">Silício</div>
+                        <div class="info-extra2">28,085</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Ametais" style="background-color: #2a4165;">
+                        <div>15</div>
+                        <div>P</div>
+                        <div style="visibility: hidden;">Fósforo</div>
+                        <div class="info-extra">Fósforo</div>
+                        <div class="info-extra2">30,974</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Ametais" style="background-color: #2a4165;">
+                        <div>16</div>
+                        <div>S</div>
+                        <div style="visibility: hidden;">Enxofre</div>
+                        <div class="info-extra">Enxofre</div>
+                        <div class="info-extra2">32,065</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Ametais" style="background-color: #2a4165;">
+                        <div>17</div>
+                        <div>Cl</div>
+                        <div style="visibility: hidden;">Cloro</div>
+                        <div class="info-extra">Cloro</div>
+                        <div class="info-extra2">35,453</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom gas-nobre" style="background-color: #623842;">
+                        <div>18</div>
+                        <div>Ar</div>
+                        <div style="visibility: hidden;">Argônio</div>
+                        <div class="info-extra">Argônio</div>
+                        <div class="info-extra2">39,948</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-1">
+                <div class="col-auto">
+                    <div class="elemento zoom alcalino" style="background-color: #244d57;">
+                        <div>19</div>
+                        <div>K</div>
+                        <div style="visibility: hidden;">Potássio</div>
+                        <div class="info-extra">Potássio</div>
+                        <div class="info-extra2">39,098</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom alcalinoterroso" style="background-color: #622e39;">
+                        <div>20</div>
+                        <div>Ca</div>
+                        <div style="visibility: hidden;">Cálcio</div>
+                        <div class="info-extra">Cálcio</div>
+                        <div class="info-extra2">40,078</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>21</div>
+                        <div>Sc</div>
+                        <div style="visibility: hidden;">Escândio</div>
+                        <div class="info-extra">Escândio</div>
+                        <div class="info-extra2">44,956</div>
+                    </div>
+                </div>
+                <div class="col"></div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>22</div>
+                        <div>Ti</div>
+                        <div style="visibility: hidden;">Titânio</div>
+                        <div class="info-extra">Titânio</div>
+                        <div class="info-extra2">47,867</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>23</div>
+                        <div>V</div>
+                        <div style="visibility: hidden;">Vanádio</div>
+                        <div class="info-extra">Vanádio</div>
+                        <div class="info-extra2">50,941</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>24</div>
+                        <div>Cr</div>
+                        <div style="visibility: hidden;">Cromo</div>
+                        <div class="info-extra">Cromo</div>
+                        <div class="info-extra2">51,996</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>25</div>
+                        <div>Mn</div>
+                        <div style="visibility: hidden;">Manganês</div>
+                        <div class="info-extra">Manganês</div>
+                        <div class="info-extra2">54,938</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>26</div>
+                        <div>Fe</div>
+                        <div style="visibility: hidden;">Ferro</div>
+                        <div class="info-extra">Ferro</div>
+                        <div class="info-extra2">55,845</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>27</div>
+                        <div>Co</div>
+                        <div style="visibility: hidden;">Cobalto</div>
+                        <div class="info-extra">Cobalto</div>
+                        <div class="info-extra2">58,933</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>28</div>
+                        <div>Ni</div>
+                        <div style="visibility: hidden;">Níquel</div>
+                        <div class="info-extra">Níquel</div>
+                        <div class="info-extra2">58,693</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>29</div>
+                        <div>Cu</div>
+                        <div style="visibility: hidden;">Cobre</div>
+                        <div class="info-extra">Cobre</div>
+                        <div class="info-extra2">63,546</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>30</div>
+                        <div>Zn</div>
+                        <div style="visibility: hidden;">Zinco</div>
+                        <div class="info-extra">Zinco</div>
+                        <div class="info-extra2">65,38</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom metais-pós " style="background-color: #2f4d47;">
+                        <div>31</div>
+                        <div>Ga</div>
+                        <div style="visibility: hidden;">Gálio</div>
+                        <div class="info-extra">Gálio</div>
+                        <div class="info-extra2">69,723</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom semimetais" style="background-color: #523e1b;">
+                        <div>32</div>
+                        <div>Ge</div>
+                        <div style="visibility: hidden;">Germânio</div>
+                        <div class="info-extra">Germânio</div>
+                        <div class="info-extra2">72,63</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom semimetais" style="background-color: #523e1b;">
+                        <div>33</div>
+                        <div>As</div>
+                        <div style="visibility: hidden;">Arsênio</div>
+                        <div class="info-extra">Arsênio</div>
+                        <div class="info-extra2">74,922</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Ametais" style="background-color: #2a4165;">
+                        <div>34</div>
+                        <div>Se</div>
+                        <div style="visibility: hidden;">Selênio</div>
+                        <div class="info-extra">Selênio</div>
+                        <div class="info-extra2">78,971</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Ametais" style="background-color: #2a4165;">
+                        <div>35</div>
+                        <div>Br</div>
+                        <div style="visibility: hidden;">Bromo</div>
+                        <div class="info-extra">Bromo</div>
+                        <div class="info-extra2">79,904</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom gas-nobre" style="background-color: #623842;">
+                        <div>36</div>
+                        <div>Kr</div>
+                        <div style="visibility: hidden;">Criptônio</div>
+                        <div class="info-extra">Criptônio</div>
+                        <div class="info-extra2">83,798</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row justify-content-start g-1">
+                <div class="col-auto">
+                    <div class="elemento zoom alcalino" style="background-color: #244d57;">
+                        <div>37</div>
+                        <div>Rb</div>
+                        <div style="visibility: hidden;">Rubídio</div>
+                        <div class="info-extra">Rubídio</div>
+                        <div class="info-extra2">85,468</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom alcalinoterroso" style="background-color: #622e39;">
+                        <div>38</div>
+                        <div>Sr</div>
+                        <div style="visibility: hidden;">Estrôncio</div>
+                        <div class="info-extra">Estrôncio</div>
+                        <div class="info-extra2">87,62</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>39</div>
+                        <div>Y</div>
+                        <div style="visibility: hidden;">Ítrio</div>
+                        <div class="info-extra">Ítrio</div>
+                        <div class="info-extra2">88,906</div>
+                    </div>
+                </div>
+                <div class="col"></div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>40</div>
+                        <div>Zr</div>
+                        <div style="visibility: hidden;">Zircônio</div>
+                        <div class="info-extra">Zircônio</div>
+                        <div class="info-extra2">91,224</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>41</div>
+                        <div>Nb</div>
+                        <div style="visibility: hidden;">Nióbio</div>
+                        <div class="info-extra">Nióbio</div>
+                        <div class="info-extra2">92,906</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>42</div>
+                        <div>Mo</div>
+                        <div style="visibility: hidden;">Molibdênio</div>
+                        <div class="info-extra">Molibdênio</div>
+                        <div class="info-extra2">95,95</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>43</div>
+                        <div>Tc</div>
+                        <div style="visibility: hidden;">Tecnécio</div>
+                        <div class="info-extra">Tecnécio</div>
+                        <div class="info-extra2">98</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>44</div>
+                        <div>Ru</div>
+                        <div style="visibility: hidden;">Rutênio</div>
+                        <div class="info-extra">Rutênio</div>
+                        <div class="info-extra2">101,07</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>45</div>
+                        <div>Rh</div>
+                        <div style="visibility: hidden;">Ródio</div>
+                        <div class="info-extra">Ródio</div>
+                        <div class="info-extra2">102,905</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>46</div>
+                        <div>Pd</div>
+                        <div style="visibility: hidden;">Paládio</div>
+                        <div class="info-extra">Paládio</div>
+                        <div class="info-extra2">106,42</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>47</div>
+                        <div>Ag</div>
+                        <div style="visibility: hidden;">Prata</div>
+                        <div class="info-extra">Prata</div>
+                        <div class="info-extra2">107,868</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>48</div>
+                        <div>Cd</div>
+                        <div style="visibility: hidden;">Cádmio</div>
+                        <div class="info-extra">Cádmio</div>
+                        <div class="info-extra2">112,414</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom metais-pós" style="background-color: #2f4d47;">
+                        <div>49</div>
+                        <div>In</div>
+                        <div style="visibility: hidden;">Índio</div>
+                        <div class="info-extra">Índio</div>
+                        <div class="info-extra2">114,818</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom metais-pós" style="background-color: #2f4d47;">
+                        <div>50</div>
+                        <div>Sn</div>
+                        <div style="visibility: hidden;">Estanho</div>
+                        <div class="info-extra">Estanho</div>
+                        <div class="info-extra2">118,710</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom semimetais" style="background-color: #523e1b;">
+                        <div>51</div>
+                        <div>Sb</div>
+                        <div style="visibility: hidden;">Antimônio</div>
+                        <div class="info-extra">Antimônio</div>
+                        <div class="info-extra2">121,760</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom semimetais" style="background-color: #523e1b;">
+                        <div>52</div>
+                        <div>Te</div>
+                        <div style="visibility: hidden;">Telúrio</div>
+                        <div class="info-extra">Telúrio</div>
+                        <div class="info-extra2">127,60</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Ametais" style="background-color: #2a4165;">
+                        <div>53</div>
+                        <div>I</div>
+                        <div style="visibility: hidden;">Iodo</div>
+                        <div class="info-extra">Iodo</div>
+                        <div class="info-extra2">126,904</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom gas-nobre" style="background-color: #623842;">
+                        <div>54</div>
+                        <div>Xe</div>
+                        <div style="visibility: hidden;">Xenônio</div>
+                        <div class="info-extra">Xenônio</div>
+                        <div class="info-extra2">131,293</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-1">
+                <div class="col-auto">
+                    <div class="elemento zoom alcalino" style="background-color: #244d57;">
+                        <div>55</div>
+                        <div>Cs</div>
+                        <div style="visibility: hidden;">Césio</div>
+                        <div class="info-extra">Césio</div>
+                        <div class="info-extra2">132,905</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom alcalinoterroso" style="background-color: #622e39;">
+                        <div>56</div>
+                        <div>Ba</div>
+                        <div style="visibility: hidden;">Bário</div>
+                        <div class="info-extra">Bário</div>
+                        <div class="info-extra2">137,327</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>57</div>
+                        <div>La</div>
+                        <div style="visibility: hidden;">Lantânio</div>
+                        <div class="info-extra">Lantânio</div>
+                        <div class="info-extra2">138,91</div>
+                    </div>
+                </div>
+                <div class="col"></div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>72</div>
+                        <div>Hf</div>
+                        <div style="visibility: hidden;">Háfnio</div>
+                        <div class="info-extra">Háfnio</div>
+                        <div class="info-extra2">178,486</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>73</div>
+                        <div>Ta</div>
+                        <div style="visibility: hidden;">Tântalo</div>
+                        <div class="info-extra">Tântalo</div>
+                        <div class="info-extra2">180,947</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>74</div>
+                        <div>W</div>
+                        <div style="visibility: hidden;">Tungstênio</div>
+                        <div class="info-extra">Tungstênio</div>
+                        <div class="info-extra2">183,84</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>75</div>
+                        <div>Re</div>
+                        <div style="visibility: hidden;">Rênio</div>
+                        <div class="info-extra">Rênio</div>
+                        <div class="info-extra2">186,207</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>76</div>
+                        <div>Os</div>
+                        <div style="visibility: hidden;">Ósmio</div>
+                        <div class="info-extra">Ósmio</div>
+                        <div class="info-extra2">190,23</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>77</div>
+                        <div>Ir</div>
+                        <div style="visibility: hidden;">Irídio</div>
+                        <div class="info-extra">Irídio</div>
+                        <div class="info-extra2">192,217</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>78</div>
+                        <div>Pt</div>
+                        <div style="visibility: hidden;">Platina</div>
+                        <div class="info-extra">Platina</div>
+                        <div class="info-extra2">195,084</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>79</div>
+                        <div>Au</div>
+                        <div style="visibility: hidden;">Ouro</div>
+                        <div class="info-extra">Ouro</div>
+                        <div class="info-extra2">196,966</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>80</div>
+                        <div>Hg</div>
+                        <div style="visibility: hidden;">Mercúrio</div>
+                        <div class="info-extra">Mercúrio</div>
+                        <div class="info-extra2">200,592</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom metais-pós" style="background-color: #2f4d47;">
+                        <div>81</div>
+                        <div>Tl</div>
+                        <div style="visibility: hidden;">Tálio</div>
+                        <div class="info-extra">Tálio</div>
+                        <div class="info-extra2">204,38</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom metais-pós" style="background-color: #2f4d47;">
+                        <div>82</div>
+                        <div>Pb</div>
+                        <div style="visibility: hidden;">Chumbo</div>
+                        <div class="info-extra">Chumbo</div>
+                        <div class="info-extra2">207,2</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom metais-pós" style="background-color: #2f4d47;">
+                        <div>83</div>
+                        <div>Bi</div>
+                        <div style="visibility: hidden;">Bismuto</div>
+                        <div class="info-extra">Bismuto</div>
+                        <div class="info-extra2">208,980</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom metais-pós" style="background-color: #2f4d47;">
+                        <div>84</div>
+                        <div>Po</div>
+                        <div style="visibility: hidden;">Polônio</div>
+                        <div class="info-extra">Polônio</div>
+                        <div class="info-extra2">209</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom metais-pós" style="background-color: #2f4d47;">
+                        <div>85</div>
+                        <div>At</div>
+                        <div style="visibility: hidden;">Ástato</div>
+                        <div class="info-extra">Ástato</div>
+                        <div class="info-extra2">210</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom gas-nobre" style="background-color: #623842;">
+                        <div>86</div>
+                        <div>Rn</div>
+                        <div style="visibility: hidden;">Radônio</div>
+                        <div class="info-extra">Radônio</div>
+                        <div class="info-extra2">222</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-1">
+                <div class="col-auto">
+                    <div class="elemento zoom alcalino" style="background-color: #244d57;">
+                        <div>87</div>
+                        <div>Fr</div>
+                        <div style="visibility: hidden;">Frâncio</div>
+                        <div class="info-extra">Frâncio</div>
+                        <div class="info-extra2">223</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom alcalinoterroso" style="background-color: #622e39;">
+                        <div>88</div>
+                        <div>Ra</div>
+                        <div style="visibility: hidden;">Rádio</div>
+                        <div class="info-extra">Rádio</div>
+                        <div class="info-extra2">226</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>89</div>
+                        <div>Ac</div>
+                        <div style="visibility: hidden;">Actínio</div>
+                        <div class="info-extra">Actínio</div>
+                        <div class="info-extra2">227</div>
+                    </div>
+                </div>
+                <div class="col"></div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>104</div>
+                        <div>Rf</div>
+                        <div style="visibility: hidden;">Rutherfórdio</div>
+                        <div class="info-extra">Rutherfórdio</div>
+                        <div class="info-extra2">267</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>105</div>
+                        <div>Db</div>
+                        <div style="visibility: hidden;">Dúbnio</div>
+                        <div class="info-extra">Dúbnio</div>
+                        <div class="info-extra2">270</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>106</div>
+                        <div>Sg</div>
+                        <div style="visibility: hidden;">Seabórgio</div>
+                        <div class="info-extra">Seabórgio</div>
+                        <div class="info-extra2">271</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #2a4165;">
+                        <div>107</div>
+                        <div>Bh</div>
+                        <div style="visibility: hidden;">Bóhrio</div>
+                        <div class="info-extra">Bóhrio</div>
+                        <div class="info-extra2">270</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom transicao" style="background-color: #433c65;">
+                        <div>108</div>
+                        <div>Hs</div>
+                        <div style="visibility: hidden;">Hássio</div>
+                        <div class="info-extra">Hássio</div>
+                        <div class="info-extra2">277</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom desconhecidas" style="background-color: #46474c;">
+                        <div>109</div>
+                        <div>Mt</div>
+                        <div style="visibility: hidden;">Meitnério</div>
+                        <div class="info-extra">Meitnério</div>
+                        <div class="info-extra2">276</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom desconhecidas" style="background-color: #46474c;">
+                        <div>110</div>
+                        <div>Ds</div>
+                        <div style="visibility: hidden;">Darmstádio</div>
+                        <div class="info-extra">Darmstádio</div>
+                        <div class="info-extra2">281</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom desconhecidas" style="background-color: #46474c;">
+                        <div>111</div>
+                        <div>Rg</div>
+                        <div style="visibility: hidden;">Roentgênio</div>
+                        <div class="info-extra">Roentgênio</div>
+                        <div class="info-extra2">282</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom desconhecidas" style="background-color: #46474c;">
+                        <div>112</div>
+                        <div>Cn</div>
+                        <div style="visibility: hidden;">Copernício</div>
+                        <div class="info-extra">Copernício</div>
+                        <div class="info-extra2">285</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom desconhecidas" style="background-color: #46474c;">
+                        <div>113</div>
+                        <div>Nh</div>
+                        <div style="visibility: hidden;">Nihônio</div>
+                        <div class="info-extra">Nihônio</div>
+                        <div class="info-extra2">286</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom desconhecidas" style="background-color: #46474c;">
+                        <div>114</div>
+                        <div>Fl</div>
+                        <div style="visibility: hidden;">Fleróvio</div>
+                        <div class="info-extra">Fleróvio</div>
+                        <div class="info-extra2">289</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom desconhecidas" style="background-color: #46474c;">
+                        <div>115</div>
+                        <div>Mc</div>
+                        <div style="visibility: hidden;">Moscóvio</div>
+                        <div class="info-extra">Moscóvio</div>
+                        <div class="info-extra2">288</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom desconhecidas" style="background-color: #46474c;">
+                        <div>116</div>
+                        <div>Lv</div>
+                        <div style="visibility: hidden;">Livermório</div>
+                        <div class="info-extra">Livermório</div>
+                        <div class="info-extra2">293</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom desconhecidas" style="background-color: #46474c;">
+                        <div>117</div>
+                        <div>Tn</div>
+                        <div style="visibility: hidden;">Tenessino</div>
+                        <div class="info-extra">Tenessino</div>
+                        <div class="info-extra2">294</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom desconhecidas" style="background-color: #46474c;">
+                        <div>118</div>
+                        <div>Og</div>
+                        <div style="visibility: hidden;">Oganessônio</div>
+                        <div class="info-extra">Oganessônio</div>
+                        <div class="info-extra2">294</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" style="visibility: hidden;">.</div>
+            <div class="row g-1">
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>58</div>
+                        <div>Ce</div>
+                        <div style="visibility: hidden;">Cério</div>
+                        <div class="info-extra">Cério</div>
+                        <div class="info-extra2">140,12</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>59</div>
+                        <div>Pr</div>
+                        <div style="visibility: hidden;">Praseodímio</div>
+                        <div class="info-extra">Praseodímio</div>
+                        <div class="info-extra2">140,907</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>60</div>
+                        <div>Nd</div>
+                        <div style="visibility: hidden;">Neodímio</div>
+                        <div class="info-extra">Neodímio</div>
+                        <div class="info-extra2">144,242</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>61</div>
+                        <div>Pm</div>
+                        <div style="visibility: hidden;">Promécio</div>
+                        <div class="info-extra">Promécio</div>
+                        <div class="info-extra2">145</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>62</div>
+                        <div>Sm</div>
+                        <div style="visibility: hidden;">Samário</div>
+                        <div class="info-extra">Samário</div>
+                        <div class="info-extra2">150,36</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>63</div>
+                        <div>Eu</div>
+                        <div style="visibility: hidden;">Európio</div>
+                        <div class="info-extra">Európio</div>
+                        <div class="info-extra2">151,964</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>64</div>
+                        <div>Gd</div>
+                        <div style="visibility: hidden;">Gadolínio</div>
+                        <div class="info-extra">Gadolínio</div>
+                        <div class="info-extra2">157,25</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>65</div>
+                        <div>Tb</div>
+                        <div style="visibility: hidden;">Térbio</div>
+                        <div class="info-extra">Térbio</div>
+                        <div class="info-extra2">158,925</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>66</div>
+                        <div>Dy</div>
+                        <div style="visibility: hidden;">Disprósio</div>
+                        <div class="info-extra">Disprósio</div>
+                        <div class="info-extra2">162,500</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>67</div>
+                        <div>Ho</div>
+                        <div style="visibility: hidden;">Hólmio</div>
+                        <div class="info-extra">Hólmio</div>
+                        <div class="info-extra2">164,930</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>68</div>
+                        <div>Er</div>
+                        <div style="visibility: hidden;">Érbio</div>
+                        <div class="info-extra">Érbio</div>
+                        <div class="info-extra2">167,259</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>69</div>
+                        <div>Tm</div>
+                        <div style="visibility: hidden;">Túlio</div>
+                        <div class="info-extra">Túlio</div>
+                        <div class="info-extra2">168,934</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>70</div>
+                        <div>Yb</div>
+                        <div style="visibility: hidden;">Itérbio</div>
+                        <div class="info-extra">Itérbio</div>
+                        <div class="info-extra2">173,04</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom lantanideos" style="background-color: #004a77;">
+                        <div>71</div>
+                        <div>Lu</div>
+                        <div style="visibility: hidden;">Lutécio</div>
+                        <div class="info-extra">Lutécio</div>
+                        <div class="info-extra2">174,966</div>
+                    </div>
+                </div>
+                <div class="col-auto" style="visibility: hidden;">
+                    <div class="elemento zoom" style="background-color: #004a77;">
+                        <div>71</div>
+                        <div>Lu</div>
+                        <div style="visibility: hidden;">Lutécio</div>
+                        <div class="info-extra">Lutécio</div>
+                        <div class="info-extra2">174,966</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row g-1">
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col"></div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>90</div>
+                        <div>Th</div>
+                        <div style="visibility: hidden;">Tório</div>
+                        <div class="info-extra">Tório</div>
+                        <div class="info-extra2">232,04</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>91</div>
+                        <div>Pa</div>
+                        <div style="visibility: hidden;">Protactínio</div>
+                        <div class="info-extra">Protactínio</div>
+                        <div class="info-extra2">231,04</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>92</div>
+                        <div>U</div>
+                        <div style="visibility: hidden;">Urânio</div>
+                        <div class="info-extra">Urânio</div>
+                        <div class="info-extra2">238,03</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>93</div>
+                        <div>Np</div>
+                        <div style="visibility: hidden;">Neptúnio</div>
+                        <div class="info-extra">Neptúnio</div>
+                        <div class="info-extra2">237,05</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>94</div>
+                        <div>Sm</div>
+                        <div style="visibility: hidden;">Plutônio</div>
+                        <div class="info-extra">Plutônio</div>
+                        <div class="info-extra2">244</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>95</div>
+                        <div>Am</div>
+                        <div style="visibility: hidden;">Amerício</div>
+                        <div class="info-extra">Amerício</div>
+                        <div class="info-extra2">243</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>96</div>
+                        <div>Cm</div>
+                        <div style="visibility: hidden;">Cúrio</div>
+                        <div class="info-extra">Cúrio</div>
+                        <div class="info-extra2">247</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>97</div>
+                        <div>Bk</div>
+                        <div style="visibility: hidden;">Berquélio</div>
+                        <div class="info-extra">Berquélio</div>
+                        <div class="info-extra2">247</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>98</div>
+                        <div>Cf</div>
+                        <div style="visibility: hidden;">Califórnio</div>
+                        <div class="info-extra">Califórnio</div>
+                        <div class="info-extra2">251</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>99</div>
+                        <div>Es</div>
+                        <div style="visibility: hidden;">Einstênio</div>
+                        <div class="info-extra">Einstênio</div>
+                        <div class="info-extra2">252</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>100</div>
+                        <div>Fm</div>
+                        <div style="visibility: hidden;">Férmio</div>
+                        <div class="info-extra">Férmio</div>
+                        <div class="info-extra2">257</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>101</div>
+                        <div>Md</div>
+                        <div style="visibility: hidden;">Mendelévio</div>
+                        <div class="info-extra">Mendelévio</div>
+                        <div class="info-extra2">258</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>102</div>
+                        <div>No</div>
+                        <div style="visibility: hidden;">Nobélio</div>
+                        <div class="info-extra">Nobélio</div>
+                        <div class="info-extra2">258</div>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <div class="elemento zoom Actinídeos" style="background-color: #613b28;">
+                        <div>103</div>
+                        <div>Lr</div>
+                        <div style="visibility: hidden;">Laurêncio</div>
+                        <div class="info-extra">Laurêncio</div>
+                        <div class="info-extra2">262</div>
+                    </div>
+                </div>
+                <div class="col-auto" style="visibility: hidden;">
+                    <div class="elemento zoom" style="background-color: #2f4d47;">
+                        <div>71</div>
+                        <div>Lu</div>
+                        <div style="visibility: hidden;">Lutécio</div>
+                        <div class="info-extra">Lutécio</div>
+                        <div class="info-extra2">174,966</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="legenda mt-3 text-center" style="cursor: pointer;">
+            <span class="badge" onclick="destacarGrupo('alcalino')"><span style="visibility: hidden;">.......</span>
+                <div class="ball" style="background-color: #244d57;"></div> Metais
+                alcalinos
+            </span>
+            <span class="badge" onclick="destacarGrupo('alcalinoterroso')"><span style="visibility: hidden;">.......</span>
+                <div class="ball" style="background-color: #622e39;"></div> Metais alcalinoterrosos
+            </span>
+            <span class="badge" onclick="destacarGrupo('transicao')"><span style="visibility: hidden;">.......</span>
+                <div class="ball" style="background-color: #433c65;"></div> Metais de transição
+            </span>
+            <span class="badge" onclick="destacarGrupo('metais-pós')"><span style="visibility: hidden;">.......</span>
+                <div class="ball" style="background-color: #2f4d47;"></div> Metais pós-transição
+            </span>
+            <span class="badge" onclick="destacarGrupo('semimetais')"><span style="visibility: hidden;">.......</span>
+                <div class="ball" style="background-color: #523e1b;"></div> Semimetais
+            </span>
+            <span class="badge" onclick="destacarGrupo('Ametais')"><span style="visibility: hidden;">.......</span>
+                <div class="ball" style="background-color: #2a4165;"></div> Ametais reativos
+            </span>
+            <span class="badge" onclick="destacarGrupo('gas-nobre')"><span style="visibility: hidden;">.......</span>
+                <div class="ball" style="background-color: #623842;"></div> Gases nobres
+            </span>
+            <span class="badge" onclick="destacarGrupo('lantanideos')"><span style="visibility: hidden;">.......</span>
+                <div class="ball" style="background-color: #004a77;"></div> Lantanídeos
+            </span>
+            <span class="badge" onclick="destacarGrupo('Actinídeos')"><span style="visibility: hidden;">.......</span>
+                <div class="ball" style="background-color: #613b28;"></div> Actinídeos
+            </span>
+            <span class="badge" onclick="destacarGrupo('desconhecidas')"><span style="visibility: hidden;">.......</span>
+                <div class="ball" style="background-color: #46474c;"></div> Propriedades
+                desconhecidas
+            </span>
+        </div>
+        <hr style="margin: 0; margin-top: 30px;">
+        <footer bg-gray-700 p-3>
+            <div class="text-center mt-3 mb-3 mt-auto">
+                <small>Desenvolvido por <p>Giovanni Galanjauskas Kacevicius Lima Ferreira & Arthur Emmerich Lamas</p>
+                </small>
+        </footer>
+    </main>
+
+</body>
+        <script>
+            function destacarGrupo(classe) {
+                const elementos = document.querySelectorAll('.elemento');
+                // Verifica se o grupo já está ativo
+                const grupoSelecionado = document.querySelectorAll('.' + classe);
+                const ativo = Array.from(grupoSelecionado).some(el => el.classList.contains('destacado'));
+                // Primeiro remove o destaque de todos os elementos
+                elementos.forEach(el => {
+                    el.classList.remove('destacado');
+                });
+                // Se o grupo não estava ativo, aplica o destaque
+                if (!ativo) {
+                    grupoSelecionado.forEach(el => {
+                        el.classList.add('destacado');
+                    });
+                }
+            }
+        </script>
+
+</html>
